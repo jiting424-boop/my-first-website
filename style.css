@@ -22,6 +22,19 @@ font-size: 18px;
 
 /* Main Heading */
 h1{
+  h1{
+color: darkblue;
+animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+color: darkblue;
+}
+to{
+color: red;
+}
+}
 color: darkblue;
 margin-top: 20px;
 }
