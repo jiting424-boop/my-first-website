@@ -11,7 +11,11 @@ nav{
 background:#333;
 padding:10px;
 }
-
+nav img{
+vertical-align:middle;
+margin-right:10px;
+border-radius:50%;
+}
 nav a{
 color:white;
 margin:10px;
