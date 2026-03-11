@@ -64,6 +64,12 @@ cursor: pointer;
 button:hover{
 background-color: darkblue;
 }
+.cards{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
 .card{
 background-color: white;
 padding: 15px;
