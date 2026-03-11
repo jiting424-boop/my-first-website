@@ -21,7 +21,11 @@ color:white;
 margin:10px;
 text-decoration:none;
 }
-
+.hero{
+background:#4a90e2;
+color:white;
+padding:40px;
+}
 /* CARDS */
 
 .cards{
