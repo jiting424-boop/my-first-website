@@ -48,7 +48,9 @@ border-radius: 6px;
 font-size: 16px;
 cursor: pointer;
 }
-
+button:hover{
+background-color: darkblue;
+}
 /* Footer */
 footer{
 background-color: #333;
