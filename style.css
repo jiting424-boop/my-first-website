@@ -1,93 +1,66 @@
-/* Whole Website */
 body{
-font-family: Arial, sans-serif;
-text-align: center;
-background-color: #9ec1cf;
-margin: 0;
-padding: 0;
+font-family: Arial;
+text-align:center;
+background:#9ec1cf;
+margin:0;
 }
 
-/* Navigation Menu */
+/* NAVBAR */
+
 nav{
-background-color: #333;
-padding: 10px;
+background:#333;
+padding:10px;
 }
 
 nav a{
-color: white;
-text-decoration: none;
-margin: 10px;
-font-size: 18px;
+color:white;
+margin:10px;
+text-decoration:none;
 }
 
-/* Main Heading */
-h1{
-  h1{
-color: darkblue;
-animation: glow 2s infinite alternate;
-}
+/* CARDS */
 
-@keyframes glow{
-from{
-color: darkblue;
-}
-to{
-color: red;
-}
-}
-color: darkblue;
-margin-top: 20px;
-}
-
-/* Sub Heading */
-h2{
-color: black;
-}
-
-/* Image Style */
-img{
-width: 200px;
-border-radius: 10px;
-margin: 15px;
-}
-
-/* Button Style */
-button{
-background-color: blue;
-color: white;
-padding: 10px 20px;
-border: none;
-border-radius: 6px;
-font-size: 16px;
-cursor: pointer;
-}
-button:hover{
-background-color: darkblue;
-}
 .cards{
 display:flex;
 justify-content:center;
 gap:20px;
 flex-wrap:wrap;
 }
+
 .card{
-background-color: white;
-padding: 15px;
-margin: 20px;
-border-radius: 10px;
-box-shadow: 0px 0px 10px gray;
+background:white;
+padding:15px;
+border-radius:10px;
+width:200px;
+box-shadow:0 0 10px gray;
 }
-/* Footer */
-footer{
-background-color: #333;
-color: white;
-padding: 10px;
-margin-top: 20px;
-}
-.dark{
-background:#111;
+
+/* BUTTON */
+
+button{
+background:blue;
 color:white;
+padding:8px 15px;
+border:none;
+border-radius:6px;
+cursor:pointer;
 }
+
+button:hover{
+background:darkblue;
+}
+
+/* FOOTER */
+
+footer{
+background:#333;
+color:white;
+padding:10px;
+margin-top:20px;
+}
+
+/* DARK MODE */
+
 .dark{
 background:black;
 color:white;
