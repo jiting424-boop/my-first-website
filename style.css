@@ -22,11 +22,11 @@ margin:10px;
 text-decoration:none;
 }
 .hero{
-background:#4a90e2;
+background:url(hero.jpg);
+background-size:cover;
+padding:50px;
 color:white;
-padding:40px;
 }
-/* CARDS */
 
 .cards{
 display:flex;
