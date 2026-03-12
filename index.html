@@ -2,19 +2,32 @@
 <html>
 
 <head>
+
 <title>AI Career Guide</title>
+
 <link rel="stylesheet" href="style.css">
+
 <link rel="icon" href="icon.png">
+
 </head>
 
 <body>
+
+<!-- NAVBAR -->
+
 <nav>
-  <img src="image.png" width="40">
+
+<img src="image.png" width="40">
+
 <a href="#">Home</a>
 <a href="#">AI Career</a>
+
 <button onclick="toggleDark()">Dark Mode</button>
+
 </nav>
-  <!-- HERO SECTION -->
+
+<!-- HERO SECTION -->
+
 <div class="hero">
 
 <h1>AI Career Guide</h1>
@@ -24,11 +37,8 @@
 <button>Start Learning</button>
 
 </div>
-<h1>Radha Radha 🙏</h1>
 
-<h2>Welcome to AI Career Guide</h2>
-
-<p>I am learning web development.</p>
+<!-- CARDS -->
 
 <div class="cards">
 
@@ -44,28 +54,68 @@
 
 <div class="card">
 <h3>AI Tools</h3>
-<p>Learn AI tools</p>
+<p>Learn useful AI tools</p>
 </div>
+
+</div>
+
+<!-- COUNTER -->
+
+<h2>Website Visitors</h2>
+
+<p id="count">0</p>
+
+<button onclick="add()">Click Me</button>
+
+<!-- ABOUT -->
+
 <h2>About Me</h2>
 
 <p>
+
 Hello, my name is Jitin Gupta.  
-I am learning Web Development and AI tools.  
-My goal is to become an AI Developer and build useful websites.
+I am learning Web Development and AI tools.
+
 </p>
-</div>
+
+<!-- CONTACT -->
+
 <a href="mailto:jitinaidev@gmail.com">
+
 <button>Contact Me</button>
+
 </a>
+
+<!-- FOOTER -->
+
 <footer>
+
 <p>© 2026 AI Career Guide</p>
+
 </footer>
 
+<!-- JAVASCRIPT -->
+
 <script>
+
 function toggleDark(){
+
 document.body.classList.toggle("dark");
+
 }
+
+let num = 0;
+
+function add(){
+
+num++;
+
+document.getElementById("count").innerText = num;
+
+}
+
 </script>
 
 </body>
+
 </html>
