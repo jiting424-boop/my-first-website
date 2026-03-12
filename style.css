@@ -128,7 +128,19 @@ padding:10px;
 margin-top:20px;
 
 }
+#topBtn{
 
+position:fixed;
+bottom:20px;
+right:20px;
+padding:10px 15px;
+background:black;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+
+}
 /* DARK MODE */
 
 .dark{
