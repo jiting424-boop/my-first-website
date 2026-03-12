@@ -1,4 +1,7 @@
- body{
+html{
+scroll-behavior:smooth;
+}
+body{
 font-family: Arial;
 text-align:center;
 background:#9ec1cf;
