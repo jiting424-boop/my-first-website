@@ -60,7 +60,22 @@ width:200px;
 box-shadow:0 0 10px gray;
 
 }
+.gallery{
 
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+
+}
+
+.gallery img{
+
+width:150px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+
+}
 button{
 
 background:blue;
