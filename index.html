@@ -37,7 +37,36 @@
 <button>Start Learning</button>
 
 </div>
+<input type="text" id="search" placeholder="Search Career...">
 
+<button onclick="searchCareer()">Search</button>
+  <script>
+
+function searchCareer(){
+
+let input = document.getElementById("search").value.toLowerCase();
+
+if(input == "ai"){
+
+alert("AI Developer is a great career!");
+
+}
+
+else if(input == "web"){
+
+alert("Web Developer is a great career!");
+
+}
+
+else{
+
+alert("Career not found");
+
+}
+
+}
+
+  </script>
 <!-- CARDS -->
 
 <div class="cards">
