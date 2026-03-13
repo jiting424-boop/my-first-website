@@ -67,6 +67,20 @@ alert("Career not found");
 }
 
   </script>
+<button onclick="recommendCareer()">Recommend Career</button>
+  <script>
+
+function recommendCareer(){
+
+let careers = ["AI Developer","Web Developer","Data Scientist","Cyber Security"];
+
+let random = Math.floor(Math.random()*careers.length);
+
+alert("Recommended Career: " + careers[random]);
+
+}
+
+  </script>
 <!-- CARDS -->
 
 <div class="cards">
