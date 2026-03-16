@@ -1,219 +1,64 @@
-html{
-scroll-behavior:smooth;
-}
-
 body{
-
 font-family: Arial;
-text-align:center;
-background:#9ec1cf;
 margin:0;
-
+background:#f4f4f4;
 }
 
-nav{
-
-background:#333;
-padding:10px;
-
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#111;
+color:white;
+padding:15px;
 }
 
 nav a{
-
 color:white;
 margin:10px;
 text-decoration:none;
-
-}
-
-nav img{
-
-vertical-align:middle;
-margin-right:10px;
-border-radius:50%;
-
 }
 
 .hero{
-
-background:#4a90e2;
+text-align:center;
+padding:80px;
+background:linear-gradient(90deg,#4facfe,#00f2fe);
 color:white;
-padding:40px;
-
 }
-#search{
 
-padding:10px;
-border-radius:5px;
-border:1px solid gray;
 button{
-
-padding:10px 20px;
+padding:12px 20px;
 border:none;
-border-radius:5px;
-background:black;
+background:#111;
 color:white;
 cursor:pointer;
-
+border-radius:5px;
 }
-}
-.cards{
 
+.features{
+text-align:center;
+padding:50px;
+}
+
+.feature-box{
 display:flex;
 justify-content:center;
 gap:20px;
 flex-wrap:wrap;
-
 }
 
 .card{
-
 background:white;
-padding:15px;
+padding:20px;
+width:250px;
 border-radius:10px;
-width:200px;
-box-shadow:0 0 10px gray;
-
-}
-.gallery{
-
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
 }
 
-.gallery img{
-
-width:150px;
-border-radius:10px;
-box-shadow:0 0 10px gray;
-
-}form{
-margin-top:20px;
-}
-.show{
-opacity:0;
-transform:translateY(40px);
-animation:fade 1s forwards;
-}
-
-@keyframes fade{
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-input, textarea{
-
-width:80%;
-max-width:400px;
-padding:10px;
-border-radius:5px;
-border:1px solid gray;
-
-}
-button{
-
-background:blue;
-color:white;
-padding:10px 20px;
-border:none;
-border-radius:6px;
-cursor:pointer;
-transition:0.3s;
-
-}
-
-button:hover{
-
-background:darkblue;
-transform:scale(1.1);
-
-}
-button{
-
-padding:10px 20px;
-border:none;
-border-radius:5px;
-background:black;
-color:white;
-cursor:pointer;
-
-}
-#userInput{
-
-padding:10px;
-border-radius:5px;
-border:1px solid gray;
-
-}
 footer{
-
-background:#333;
-color:white;
-padding:10px;
-margin-top:20px;
-
-}
-#topBtn{
-
-position:fixed;
-bottom:20px;
-right:20px;
-padding:10px 15px;
-background:black;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
-
-}
-/* DARK MODE */
-
-.dark{
-
+text-align:center;
+padding:20px;
 background:#111;
 color:white;
-
-}
-
-.dark .card{
-
-background:#222;
-
-}
-
-.dark nav{
-
-background:black;
-
-}
-
-.dark footer{
-
-background:black;
-
-}
-
-/* MOBILE */
-
-@media (max-width:600px){
-
-.cards{
-
-flex-direction:column;
-align-items:center;
-
-}
-
-.hero{
-
-padding:20px;
-
-}
-
+margin-top:30px;
 }
