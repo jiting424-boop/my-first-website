@@ -1,74 +1,289 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Career Guide</title>
-<link rel="stylesheet" href="style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f4f4f4;
+}
+
+header{
+background:#111;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+}
+
+.hero{
+text-align:center;
+padding:80px;
+background:linear-gradient(90deg,#4facfe,#00f2fe);
+color:white;
+}
+
+button{
+padding:10px 20px;
+border:none;
+background:#111;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+section{
+padding:50px;
+text-align:center;
+}
+
+.features{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.card{
+background:white;
+width:250px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.1);
+}
+
+.progress{
+background:#ddd;
+height:20px;
+border-radius:10px;
+}
+
+.progress-bar{
+background:#4CAF50;
+height:20px;
+border-radius:10px;
+}
+
+footer{
+background:#111;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.dark{
+background:#111;
+color:white;
+}
+
+.dark .card{
+background:#222;
+color:white;
+}
+
+input,select{
+padding:10px;
+margin:10px;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<!-- Navbar -->
 <header>
-  <h1>AI Career Guide</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#features">Features</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+
+<h2>AI Career Guide</h2>
+
+<nav>
+<a href="#">Home</a>
+<a href="#features">Features</a>
+<a href="#test">Career Test</a>
+<a href="#resume">Resume</a>
+<a href="#chat">AI Chat</a>
+<button onclick="darkMode()">🌙</button>
+</nav>
+
 </header>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
-  <h2>Welcome to AI Career Guide</h2>
-  <p>Find the best career path with AI</p>
-  <button>Start Career Test</button>
-</section>
+<div class="hero">
 
-<!-- Features -->
-<section id="features" class="features">
+<h1>Find Your Best Career With AI</h1>
 
-<h2>App Features</h2>
+<p>Smart career guidance for students</p>
 
-<div class="feature-box">
+<button onclick="alert('Scroll Down for Career Test')">Start Career Test</button>
+
+</div>
+
+<section id="features">
+
+<h2>Features</h2>
+
+<div class="features">
 
 <div class="card">
 <h3>AI Career Suggestion</h3>
-<p>Get career suggestions based on your skills.</p>
+<p>Find best career according to your interest.</p>
 </div>
 
 <div class="card">
 <h3>Resume Builder</h3>
-<p>Create a professional resume in seconds.</p>
+<p>Create professional resume quickly.</p>
 </div>
 
 <div class="card">
 <h3>Interview Practice</h3>
-<p>Practice interview with AI questions.</p>
+<p>Prepare interview questions.</p>
+</div>
+
+<div class="card">
+<h3>Salary Predictor</h3>
+<p>Know expected salary of careers.</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- About -->
-<section id="about">
-<h2>About</h2>
-<p>This website helps students choose the right career using AI technology.</p>
+<section id="test">
+
+<h2>Career Test</h2>
+
+<select id="interest">
+<option value="tech">Technology</option>
+<option value="business">Business</option>
+<option value="design">Design</option>
+</select>
+
+<br>
+
+<button onclick="career()">Get Career</button>
+
+<p id="careerResult"></p>
+
 </section>
 
-<!-- Contact -->
-<section id="contact">
+<section>
+
+<h2>Skill Progress</h2>
+
+<p>Programming</p>
+<div class="progress">
+<div class="progress-bar" style="width:70%"></div>
+</div>
+
+<p>Communication</p>
+<div class="progress">
+<div class="progress-bar" style="width:60%"></div>
+</div>
+
+</section>
+
+<section id="resume">
+
+<h2>Simple Resume Builder</h2>
+
+<input id="name" placeholder="Your Name"><br>
+
+<input id="skill" placeholder="Your Skills"><br>
+
+<button onclick="resume()">Generate Resume</button>
+
+<p id="resumeResult"></p>
+
+</section>
+
+<section id="chat">
+
+<h2>AI Career Chat</h2>
+
+<input id="question" placeholder="Ask career question">
+
+<button onclick="chat()">Send</button>
+
+<p id="chatResult"></p>
+
+</section>
+
+<section>
+
 <h2>Contact</h2>
+
 <p>Email: support@aicareer.com</p>
+
 </section>
 
-<!-- Footer -->
 <footer>
+
 <p>© 2026 AI Career Guide</p>
+
 </footer>
+
+<script>
+
+function darkMode(){
+document.body.classList.toggle("dark")
+}
+
+function career(){
+
+let interest=document.getElementById("interest").value
+
+let result=document.getElementById("careerResult")
+
+if(interest=="tech"){
+result.innerHTML="Best Career: Software Developer, AI Engineer"
+}
+
+else if(interest=="business"){
+result.innerHTML="Best Career: Entrepreneur, Marketing Manager"
+}
+
+else{
+result.innerHTML="Best Career: Graphic Designer, UI/UX Designer"
+}
+
+}
+
+function resume(){
+
+let name=document.getElementById("name").value
+
+let skill=document.getElementById("skill").value
+
+document.getElementById("resumeResult").innerHTML=
+"Name: "+name+" | Skills: "+skill
+
+}
+
+function chat(){
+
+let q=document.getElementById("question").value
+
+document.getElementById("chatResult").innerHTML=
+"AI Advice: Learn skills daily and build projects."
+
+}
+
+</script>
 
 </body>
 </html>
