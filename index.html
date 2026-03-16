@@ -1,285 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Career Guide</title>
-
 <link rel="stylesheet" href="style.css">
-
-<link rel="icon" href="icon.png">
-
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- Navbar -->
+<header>
+  <h1>AI Career Guide</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-<nav>
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <h2>Welcome to AI Career Guide</h2>
+  <p>Find the best career path with AI</p>
+  <button>Start Career Test</button>
+</section>
 
-<img src="image.png" width="40">
+<!-- Features -->
+<section id="features" class="features">
 
-<a href="#">Home</a>
-<a href="#">AI Career</a>
+<h2>App Features</h2>
 
-<button onclick="toggleDark()">Dark Mode</button>
-
-</nav>
-
-<!-- HERO SECTION -->
-
-<div class="hero">
-
-<h1>AI Career Guide</h1>
-
-<p>Learn Web Development and AI tools with me.</p>
-
-<button>Start Learning</button>
-
-</div>
-<input type="text" id="search" placeholder="Search Career...">
-
-<button onclick="searchCareer()">Search</button>
-  <script>
-
-function searchCareer(){
-
-let input = document.getElementById("search").value.toLowerCase();
-
-if(input == "ai"){
-
-alert("AI Developer is a great career!");
-
-}
-
-else if(input == "web"){
-
-alert("Web Developer is a great career!");
-
-}
-
-else{
-
-alert("Career not found");
-
-}
-
-}
-
-  </script>
-<button onclick="recommendCareer()">Recommend Career</button>
-  <script>
-
-function recommendCareer(){
-
-let careers = ["AI Developer","Web Developer","Data Scientist","Cyber Security"];
-
-let random = Math.floor(Math.random()*careers.length);
-
-alert("Recommended Career: " + careers[random]);
-
-}
-<script>
-
-function careerQuiz(answer){
-
-if(answer == "yes"){
-
-alert("You should try Web Developer or AI Developer");
-
-}
-
-else{
-
-alert("You can explore Design or Digital Marketing");
-
-}
-
-}
-
-</script>
-  </script>
-<!-- CARDS -->
-
-<div class="cards">
+<div class="feature-box">
 
 <div class="card">
-<h3>AI Developer</h3>
-<p>Learn AI Development</p>
+<h3>AI Career Suggestion</h3>
+<p>Get career suggestions based on your skills.</p>
 </div>
 
 <div class="card">
-<h3>Web Developer</h3>
-<p>Learn HTML CSS JavaScript</p>
+<h3>Resume Builder</h3>
+<p>Create a professional resume in seconds.</p>
 </div>
 
 <div class="card">
-<h3>AI Tools</h3>
-<p>Learn useful AI tools</p>
+<h3>Interview Practice</h3>
+<p>Practice interview with AI questions.</p>
 </div>
 
 </div>
-<h2>Gallery</h2>
 
-<div class="gallery">
+</section>
 
-<img src="image.png">
+<!-- About -->
+<section id="about">
+<h2>About</h2>
+<p>This website helps students choose the right career using AI technology.</p>
+</section>
 
-<img src="image.png">
+<!-- Contact -->
+<section id="contact">
+<h2>Contact</h2>
+<p>Email: support@aicareer.com</p>
+</section>
 
-<img src="image.png">
-
-</div>
-<!-- COUNTER -->
-
-<h2>Website Visitors</h2>
-
-<p id="count">0</p>
-
-<button onclick="add()">Click Me</button>
-
-<!-- ABOUT -->
-
-<h2>About Me</h2>
-
-<p>
-
-Hello, my name is Jitin Gupta.  
-I am learning Web Development and AI tools.
-
-</p>
-<h2>Career Quiz</h2>
-
-<p>Do you like coding?</p>
-
-<button onclick="careerQuiz('yes')">Yes</button>
-
-<button onclick="careerQuiz('no')">No</button>
-  
-<!-- CONTACT -->
-
-<a href="mailto:jitinaidev@gmail.com">
-
-<button>Contact Me</button>
-
-</a>
-<h2>Contact Me</h2>
-
-<form>
-
-<input type="text" placeholder="Your Name" required>
-
-<br><br>
-
-<input type="email" placeholder="Your Email" required>
-
-<br><br>
-
-<textarea placeholder="Your Message"></textarea>
-
-<br><br>
-
-<button type="submit">Send Message</button>
-
-</form>
-  <button id="topBtn" onclick="topFunction()">⬆ Top</button>
-  <button onclick="chatbot()">Ask AI</button>
-  <script>
-
-function chatbot(){
-
-let question = prompt("Ask your career question");
-
-if(question){
-
-alert("AI says: Keep learning coding and AI skills!");
-
-}
-
-}
-
-  </script>
-  <h2>AI Chatbot</h2>
-
-<input type="text" id="userInput" placeholder="Ask about career">
-
-<button onclick="chatAI()">Send</button>
-
-<p id="response"></p>
-  <script>
-
-function chatAI(){
-
-let input = document.getElementById("userInput").value.toLowerCase();
-
-let reply = "";
-
-if(input.includes("ai")){
-
-reply = "AI Developer is a great career. Learn Python and Machine Learning.";
-
-}
-
-else if(input.includes("web")){
-
-reply = "Web Developer career needs HTML CSS JavaScript.";
-
-}
-
-else if(input.includes("data")){
-
-reply = "Data Scientist works with data and AI models.";
-
-}
-
-else{
-
-reply = "Keep learning new skills in technology.";
-
-}
-
-document.getElementById("response").innerText = reply;
-
-}
-
-  </script>
-<!-- FOOTER -->
-
+<!-- Footer -->
 <footer>
-
 <p>© 2026 AI Career Guide</p>
-
 </footer>
 
-<!-- JAVASCRIPT -->
-<button onclick="showMessage()">Click Me</button>
-<script>
-
-function toggleDark(){
-
-document.body.classList.toggle("dark");
-
-}
-
-let num = 0;
-
-function add(){
-
-num++;
-
-document.getElementById("count").innerText = num;
-<script>
-
-function showMessage(){
-
-alert("Welcome to my website!");
-
-}
-
-</script>
-}
-
-</script>
-
 </body>
-
 </html>
