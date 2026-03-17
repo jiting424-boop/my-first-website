@@ -20,7 +20,19 @@ button{padding:10px 20px;border:none;background:black;color:white;border-radius:
 
 </head>
 <body>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
 
+<script>
+
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_ID"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+</script>
 <header>
 <h2>AI Career Guide PRO</h2>
 <nav>
