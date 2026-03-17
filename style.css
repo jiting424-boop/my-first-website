@@ -1,64 +1,23 @@
 body{
-font-family: Arial;
+font-family:Arial;
+background:linear-gradient(135deg,#667eea,#764ba2);
+color:white;
 margin:0;
-background:#f4f4f4;
-}
-
-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#111;
-color:white;
-padding:15px;
-}
-
-nav a{
-color:white;
-margin:10px;
-text-decoration:none;
-}
-
-.hero{
-text-align:center;
-padding:80px;
-background:linear-gradient(90deg,#4facfe,#00f2fe);
-color:white;
-}
-
-button{
-padding:12px 20px;
-border:none;
-background:#111;
-color:white;
-cursor:pointer;
-border-radius:5px;
-}
-
-.features{
-text-align:center;
-padding:50px;
-}
-
-.feature-box{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
 }
 
 .card{
 background:white;
-padding:20px;
-width:250px;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
+color:black;
+padding:15px;
+margin:10px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
-footer{
-text-align:center;
-padding:20px;
-background:#111;
+button{
+background:#ff7b00;
 color:white;
-margin-top:30px;
+border:none;
+padding:10px;
+border-radius:10px;
 }
