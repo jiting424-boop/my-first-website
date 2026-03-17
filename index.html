@@ -315,3 +315,93 @@ document.getElementById("roadmapResult").innerHTML = roadmap;
 }
 
 </script>
+<section>
+
+<h2>Career Explorer 🚀</h2>
+
+<div id="careerList"></div>
+
+<div id="careerDetail"></div>
+
+</section>
+<script>
+
+let careerData = [
+
+{
+name:"AI Engineer",
+salary:"₹10-25 LPA",
+skills:"Python, Machine Learning, Deep Learning",
+roadmap:"Learn Python → ML → Projects → Job"
+},
+
+{
+name:"Doctor",
+salary:"₹6-20 LPA",
+skills:"Biology, Medical Knowledge",
+roadmap:"12th PCB → NEET → MBBS → Internship"
+},
+
+{
+name:"Software Engineer",
+salary:"₹5-15 LPA",
+skills:"Coding, DSA, Web Dev",
+roadmap:"Learn Coding → Projects → Internship → Job"
+}
+
+];
+
+function showCareers(){
+
+let html = "";
+
+careerData.forEach((career,index)=>{
+
+html += `<div class="card" onclick="showDetail(${index})">
+${career.name}
+</div>`;
+
+});
+
+document.getElementById("careerList").innerHTML = html;
+
+}
+
+function showDetail(index){
+
+let c = careerData[index];
+
+document.getElementById("careerDetail").innerHTML = `
+<div class="card">
+<h3>${c.name}</h3>
+<p>💰 Salary: ${c.salary}</p>
+<p>🧠 Skills: ${c.skills}</p>
+<p>🛣️ Roadmap: ${c.roadmap}</p>
+</div>
+`;
+
+}
+
+showCareers();
+
+</script>
+<div class="nav">
+
+<button onclick="showSection('home')">🏠</button>
+<button onclick="showSection('career')">🎯</button>
+<button onclick="showSection('chat')">🤖</button>
+
+</div>
+<script>
+
+function showSection(section){
+
+document.getElementById("home").style.display="none";
+document.getElementById("career").style.display="none";
+document.getElementById("chat").style.display="none";
+
+document.getElementById(section).style.display="block";
+
+}
+
+</script>
