@@ -1,289 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>AI Career Guide</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Career Guide PRO</title>
 
 <style>
-
-body{
-font-family:Arial;
-margin:0;
-background:#f4f4f4;
-}
-
-header{
-background:#111;
-color:white;
-padding:15px;
-display:flex;
-justify-content:space-between;
-}
-
-nav a{
-color:white;
-margin:10px;
-text-decoration:none;
-}
-
-.hero{
-text-align:center;
-padding:80px;
-background:linear-gradient(90deg,#4facfe,#00f2fe);
-color:white;
-}
-
-button{
-padding:10px 20px;
-border:none;
-background:#111;
-color:white;
-border-radius:5px;
-cursor:pointer;
-}
-
-section{
-padding:50px;
-text-align:center;
-}
-
-.features{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-}
-
-.card{
-background:white;
-width:250px;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
-transition:0.3s;
-}
-
-.card:hover{
-transform:scale(1.1);
-}
-
-.progress{
-background:#ddd;
-height:20px;
-border-radius:10px;
-}
-
-.progress-bar{
-background:#4CAF50;
-height:20px;
-border-radius:10px;
-}
-
-footer{
-background:#111;
-color:white;
-padding:20px;
-text-align:center;
-}
-
-.dark{
-background:#111;
-color:white;
-}
-
-.dark .card{
-background:#222;
-color:white;
-}
-
-input,select{
-padding:10px;
-margin:10px;
-}
-
+body{margin:0;font-family:Arial;background:#f4f4f4}
+header{background:#0a0a0a;color:white;padding:15px;display:flex;justify-content:space-between}
+nav a{color:white;margin:10px;text-decoration:none}
+section{padding:40px;text-align:center}
+.hero{padding:80px;background:linear-gradient(90deg,#667eea,#764ba2);color:white}
+.card{background:white;padding:20px;margin:10px;border-radius:10px;box-shadow:0 5px 10px rgba(0,0,0,0.1)}
+input,select{padding:10px;margin:10px}
+button{padding:10px 20px;border:none;background:black;color:white;border-radius:5px}
+.dark{background:#111;color:white}
+.dark .card{background:#222}
 </style>
 
 </head>
-
 <body>
 
 <header>
-
-<h2>AI Career Guide</h2>
-
+<h2>AI Career Guide PRO</h2>
 <nav>
 <a href="#">Home</a>
-<a href="#features">Features</a>
-<a href="#test">Career Test</a>
-<a href="#resume">Resume</a>
+<a href="#careers">Careers</a>
+<a href="#roadmap">Roadmap</a>
 <a href="#chat">AI Chat</a>
 <button onclick="darkMode()">🌙</button>
 </nav>
-
 </header>
 
 <div class="hero">
-
-<h1>Find Your Best Career With AI</h1>
-
-<p>Smart career guidance for students</p>
-
-<button onclick="alert('Scroll Down for Career Test')">Start Career Test</button>
-
+<h1>India's #1 AI Career Platform</h1>
+<p>200+ Careers | AI Roadmaps | Smart Guidance</p>
 </div>
 
-<section id="features">
-
-<h2>Features</h2>
-
-<div class="features">
-
-<div class="card">
-<h3>AI Career Suggestion</h3>
-<p>Find best career according to your interest.</p>
-</div>
-
-<div class="card">
-<h3>Resume Builder</h3>
-<p>Create professional resume quickly.</p>
-</div>
-
-<div class="card">
-<h3>Interview Practice</h3>
-<p>Prepare interview questions.</p>
-</div>
-
-<div class="card">
-<h3>Salary Predictor</h3>
-<p>Know expected salary of careers.</p>
-</div>
-
-</div>
-
+<section id="careers">
+<h2>Career Database</h2>
+<select id="careerSelect">
+<option>Software Developer</option>
+<option>AI Engineer</option>
+<option>Doctor</option>
+<option>Lawyer</option>
+<option>Graphic Designer</option>
+<option>Data Scientist</option>
+</select>
+<button onclick="careerInfo()">View Career</button>
+<p id="careerOutput"></p>
 </section>
 
-<section id="test">
-
-<h2>Career Test</h2>
-
-<select id="interest">
-<option value="tech">Technology</option>
-<option value="business">Business</option>
-<option value="design">Design</option>
+<section id="roadmap">
+<h2>AI Career Roadmap Generator</h2>
+<select id="roadmapCareer">
+<option>Software Developer</option>
+<option>AI Engineer</option>
+<option>Designer</option>
 </select>
-
-<br>
-
-<button onclick="career()">Get Career</button>
-
-<p id="careerResult"></p>
-
+<button onclick="generateRoadmap()">Generate Roadmap</button>
+<p id="roadmapOutput"></p>
 </section>
 
 <section>
-
-<h2>Skill Progress</h2>
-
-<p>Programming</p>
-<div class="progress">
-<div class="progress-bar" style="width:70%"></div>
-</div>
-
-<p>Communication</p>
-<div class="progress">
-<div class="progress-bar" style="width:60%"></div>
-</div>
-
-</section>
-
-<section id="resume">
-
-<h2>Simple Resume Builder</h2>
-
-<input id="name" placeholder="Your Name"><br>
-
-<input id="skill" placeholder="Your Skills"><br>
-
-<button onclick="resume()">Generate Resume</button>
-
-<p id="resumeResult"></p>
-
+<h2>Login / Signup</h2>
+<input placeholder="Email">
+<input placeholder="Password" type="password">
+<button>Login</button>
 </section>
 
 <section id="chat">
-
-<h2>AI Career Chat</h2>
-
-<input id="question" placeholder="Ask career question">
-
+<h2>AI Chatbot</h2>
+<input id="chatInput" placeholder="Ask career question">
 <button onclick="chat()">Send</button>
-
-<p id="chatResult"></p>
-
+<p id="chatOutput"></p>
 </section>
 
 <section>
-
-<h2>Contact</h2>
-
-<p>Email: support@aicareer.com</p>
-
+<h2>Resume Builder</h2>
+<input id="name" placeholder="Name">
+<input id="skills" placeholder="Skills">
+<button onclick="resume()">Generate</button>
+<p id="resumeOutput"></p>
 </section>
 
-<footer>
-
-<p>© 2026 AI Career Guide</p>
-
-</footer>
-
 <script>
+function darkMode(){document.body.classList.toggle('dark')}
 
-function darkMode(){
-document.body.classList.toggle("dark")
+function careerInfo(){
+document.getElementById('careerOutput').innerHTML='Career Info: High demand, good salary, strong growth.'
 }
 
-function career(){
-
-let interest=document.getElementById("interest").value
-
-let result=document.getElementById("careerResult")
-
-if(interest=="tech"){
-result.innerHTML="Best Career: Software Developer, AI Engineer"
-}
-
-else if(interest=="business"){
-result.innerHTML="Best Career: Entrepreneur, Marketing Manager"
-}
-
-else{
-result.innerHTML="Best Career: Graphic Designer, UI/UX Designer"
-}
-
-}
-
-function resume(){
-
-let name=document.getElementById("name").value
-
-let skill=document.getElementById("skill").value
-
-document.getElementById("resumeResult").innerHTML=
-"Name: "+name+" | Skills: "+skill
-
+function generateRoadmap(){
+document.getElementById('roadmapOutput').innerHTML='Step 1: Learn Basics → Step 2: Projects → Step 3: Job Apply'
 }
 
 function chat(){
-
-let q=document.getElementById("question").value
-
-document.getElementById("chatResult").innerHTML=
-"AI Advice: Learn skills daily and build projects."
-
+document.getElementById('chatOutput').innerHTML='AI: Focus on skills + projects.'
 }
 
+function resume(){
+let n=document.getElementById('name').value
+let s=document.getElementById('skills').value
+
+document.getElementById('resumeOutput').innerHTML='Name: '+n+' | Skills: '+s
+}
 </script>
 
 </body>
 </html>
+
