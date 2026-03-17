@@ -246,3 +246,72 @@ document.getElementById("careerResult").innerHTML = result.join("<br>");
 }
 
 </script>
+<section>
+
+<h2>AI Career Roadmap</h2>
+
+<input type="text" id="careerInput" placeholder="Enter career (e.g. AI Engineer)">
+<button onclick="generateRoadmap()">Generate</button>
+
+<div id="roadmapResult"></div>
+
+</section>
+<script>
+
+function generateRoadmap(){
+
+let career = document.getElementById("careerInput").value.toLowerCase();
+
+let roadmap = "";
+
+if(career.includes("ai") || career.includes("data")){
+
+roadmap = `
+<h3>AI Engineer Roadmap 🚀</h3>
+1️⃣ 12th PCM (Math important) <br>
+2️⃣ B.Tech / BSc Computer Science <br>
+3️⃣ Learn Python 🐍 <br>
+4️⃣ Machine Learning + Deep Learning <br>
+5️⃣ Projects (AI apps) <br>
+6️⃣ Internship + Job
+`;
+
+}
+
+else if(career.includes("doctor")){
+
+roadmap = `
+<h3>Doctor Roadmap 🏥</h3>
+1️⃣ 12th PCB <br>
+2️⃣ NEET Exam <br>
+3️⃣ MBBS Degree <br>
+4️⃣ Internship <br>
+5️⃣ Specialization
+`;
+
+}
+
+else if(career.includes("software")){
+
+roadmap = `
+<h3>Software Engineer 💻</h3>
+1️⃣ 12th PCM <br>
+2️⃣ B.Tech / Coding Skills <br>
+3️⃣ Learn HTML, CSS, JS <br>
+4️⃣ Build Projects <br>
+5️⃣ Internship <br>
+6️⃣ Job
+`;
+
+}
+
+else{
+
+roadmap = "⚠️ Career not found (try AI, Doctor, Software)";
+}
+
+document.getElementById("roadmapResult").innerHTML = roadmap;
+
+}
+
+</script>
