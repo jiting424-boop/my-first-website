@@ -50,15 +50,55 @@ firebase.initializeApp(firebaseConfig);
 </div>
 
 <section id="careers">
-<h2>Career Database</h2>
-<select id="careerSelect">
-<option>Software Developer</option>
-<option>AI Engineer</option>
-<option>Doctor</option>
-<option>Lawyer</option>
-<option>Graphic Designer</option>
-<option>Data Scientist</option>
-</select>
+<script>
+
+let careerData = [
+
+{name:"AI Engineer",salary:"₹10-25 LPA",skills:"Python, ML, DL",roadmap:"Python → ML → Projects → Job"},
+{name:"Data Scientist",salary:"₹8-20 LPA",skills:"Python, Statistics",roadmap:"Stats → Python → ML → Job"},
+{name:"Software Engineer",salary:"₹5-15 LPA",skills:"Coding, DSA",roadmap:"Coding → Projects → Internship"},
+{name:"Web Developer",salary:"₹3-10 LPA",skills:"HTML, CSS, JS",roadmap:"Frontend → Backend → Projects"},
+{name:"App Developer",salary:"₹4-12 LPA",skills:"Flutter, Android",roadmap:"Apps → Projects → Play Store"},
+{name:"Doctor",salary:"₹6-20 LPA",skills:"Biology",roadmap:"PCB → NEET → MBBS"},
+{name:"Lawyer",salary:"₹4-12 LPA",skills:"Law knowledge",roadmap:"BA LLB → Practice"},
+{name:"Chartered Accountant",salary:"₹6-25 LPA",skills:"Accounting",roadmap:"CA Foundation → Final"},
+{name:"Pilot",salary:"₹20-50 LPA",skills:"Flying",roadmap:"Training → License"},
+{name:"Digital Marketer",salary:"₹3-10 LPA",skills:"SEO, Ads",roadmap:"Learn → Freelance"},
+{name:"Graphic Designer",salary:"₹2-8 LPA",skills:"Photoshop",roadmap:"Design → Portfolio"},
+{name:"UI/UX Designer",salary:"₹5-15 LPA",skills:"Figma",roadmap:"Design → Projects"},
+{name:"Cyber Security Expert",salary:"₹8-20 LPA",skills:"Networking",roadmap:"Security → Ethical hacking"},
+{name:"Game Developer",salary:"₹5-15 LPA",skills:"Unity",roadmap:"Game dev → Publish"},
+{name:"Blockchain Developer",salary:"₹10-30 LPA",skills:"Solidity",roadmap:"Blockchain → Projects"},
+{name:"Cloud Engineer",salary:"₹8-25 LPA",skills:"AWS",roadmap:"Cloud → Certification"},
+{name:"DevOps Engineer",salary:"₹10-25 LPA",skills:"Docker",roadmap:"CI/CD → Tools"},
+{name:"Machine Learning Engineer",salary:"₹10-25 LPA",skills:"ML",roadmap:"ML → Projects"},
+{name:"Teacher",salary:"₹2-6 LPA",skills:"Teaching",roadmap:"B.Ed → School"},
+{name:"Police Officer",salary:"₹4-10 LPA",skills:"Physical fitness",roadmap:"Exam → Training"},
+{name:"Army Officer",salary:"₹6-15 LPA",skills:"Discipline",roadmap:"NDA → Training"},
+{name:"Entrepreneur",salary:"Unlimited",skills:"Business",roadmap:"Idea → Startup"},
+{name:"YouTuber",salary:"₹1-50 LPA",skills:"Content",roadmap:"Videos → Growth"},
+{name:"Content Creator",salary:"₹2-20 LPA",skills:"Social media",roadmap:"Content → Brand deals"},
+{name:"Photographer",salary:"₹2-10 LPA",skills:"Camera",roadmap:"Practice → Clients"},
+{name:"Video Editor",salary:"₹2-8 LPA",skills:"Editing",roadmap:"Edit → Freelance"},
+{name:"Animator",salary:"₹3-12 LPA",skills:"Animation",roadmap:"Animate → Studio"},
+{name:"Fashion Designer",salary:"₹3-15 LPA",skills:"Design",roadmap:"Design → Brand"},
+{name:"Interior Designer",salary:"₹4-12 LPA",skills:"Design",roadmap:"Interior → Clients"},
+{name:"Civil Engineer",salary:"₹4-12 LPA",skills:"Construction",roadmap:"B.Tech → Site"},
+{name:"Mechanical Engineer",salary:"₹4-10 LPA",skills:"Machines",roadmap:"Engg → Industry"},
+{name:"Electrical Engineer",salary:"₹4-10 LPA",skills:"Electrical",roadmap:"Engg → Job"},
+{name:"Business Analyst",salary:"₹6-15 LPA",skills:"Analysis",roadmap:"Data → Business"},
+{name:"HR Manager",salary:"₹5-12 LPA",skills:"Management",roadmap:"MBA → HR"},
+{name:"Banker",salary:"₹4-10 LPA",skills:"Finance",roadmap:"Exam → Bank"},
+{name:"Stock Trader",salary:"Variable",skills:"Market",roadmap:"Learn → Trade"},
+{name:"Actor",salary:"Variable",skills:"Acting",roadmap:"Audition → Films"},
+{name:"Singer",salary:"Variable",skills:"Music",roadmap:"Practice → Songs"},
+{name:"Sports Player",salary:"Variable",skills:"Sport",roadmap:"Practice → Selection"}
+
+];
+
+// old showCareers() and showDetail() same rahenge
+
+</script>
 <button onclick="careerInfo()">View Career</button>
 <p id="careerOutput"></p>
 </section>
