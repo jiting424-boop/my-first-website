@@ -195,4 +195,54 @@ document.getElementById('resumeOutput').innerHTML='Name: '+n+' | Skills: '+s
 
 </body>
 </html>
+<section>
 
+<h2>Search Career</h2>
+
+<input type="text" id="search" placeholder="Search career...">
+<button onclick="searchCareer()">Search</button>
+
+<div id="careerResult"></div>
+
+</section>
+
+<script>
+
+let careers = [
+
+"Software Engineer",
+"Doctor",
+"Data Scientist",
+"AI Engineer",
+"Web Developer",
+"App Developer",
+"Cyber Security Expert",
+"Digital Marketer",
+"Graphic Designer",
+"UI/UX Designer",
+"Chartered Accountant",
+"Lawyer",
+"Teacher",
+"Pilot",
+"Police Officer",
+"Army Officer",
+"Entrepreneur",
+"YouTuber",
+"Content Creator",
+"Game Developer"
+
+];
+
+function searchCareer(){
+
+let input = document.getElementById("search").value.toLowerCase();
+
+let result = careers.filter(career => 
+career.toLowerCase().includes(input)
+);
+
+document.getElementById("careerResult").innerHTML = result.join("<br>");
+
+}
+
+</script>
