@@ -69,13 +69,42 @@ button{padding:10px 20px;border:none;background:black;color:white;border-radius:
 <button>Login</button>
 </section>
 
-<section id="chat">
-<h2>AI Chatbot</h2>
-<input id="chatInput" placeholder="Ask career question">
-<button onclick="chat()">Send</button>
-<p id="chatOutput"></p>
-</section>
+<script>
 
+async function chat(){
+
+let question = document.getElementById("question").value;
+
+document.getElementById("chatResult").innerHTML = "Loading...";
+
+let response = await fetch("https://api.openai.com/v1/chat/completions",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json",
+"Authorization":"Bearer YOUR_API_KEY"
+},
+
+body:JSON.stringify({
+model:"gpt-4o-mini",
+messages:[
+{role:"system",content:"You are a career guide AI."},
+{role:"user",content:question}
+]
+})
+
+});
+
+let data = await response.json();
+
+let answer = data.choices[0].message.content;
+
+document.getElementById("chatResult").innerHTML = answer;
+
+}
+
+</script>
 <section>
 <h2>Resume Builder</h2>
 <input id="name" placeholder="Name">
