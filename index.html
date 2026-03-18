@@ -1,249 +1,139 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>AI Career Guide Pro</title>
+<title>AI Career Guide PRO</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-
-body{
-font-family:Arial;
-background:linear-gradient(135deg,#667eea,#764ba2);
-color:white;
-margin:0;
-}
-
-section{
-display:none;
-padding:15px;
-}
-
-#home{display:block;}
-
-.card{
-background:white;
-color:black;
-padding:15px;
-margin:10px;
-border-radius:15px;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
-}
-
-button{
-background:#ff7b00;
-color:white;
-border:none;
-padding:10px;
-border-radius:10px;
-margin:5px;
-}
-
-input{
-padding:10px;
-margin:5px;
-border-radius:10px;
-border:none;
-}
-
-.nav{
-position:fixed;
-bottom:0;
-width:100%;
-display:flex;
-justify-content:space-around;
-background:#222;
-padding:10px;
-}
-
-.nav button{
-background:none;
-color:white;
-font-size:20px;
-}
-
+body{font-family:Arial;background:linear-gradient(135deg,#667eea,#764ba2);color:white;margin:0}
+section{display:none;padding:15px}
+#home{display:block}
+.card{background:white;color:black;padding:15px;margin:10px;border-radius:15px}
+button{background:#ff7b00;color:white;border:none;padding:10px;border-radius:10px;margin:5px}
+input{padding:10px;margin:5px;border-radius:10px;border:none;width:90%}
+.nav{position:fixed;bottom:0;width:100%;display:flex;justify-content:space-around;background:#222;padding:10px}
+.nav button{background:none;color:white;font-size:18px}
+.chat-box{background:white;color:black;height:250px;overflow:auto;padding:10px;border-radius:10px}
 </style>
 
 </head>
 
 <body>
 
-<!-- HOME -->
 <section id="home">
-<h2>🏠 AI Career Guide</h2>
-<p>Welcome to your future 🚀</p>
+<h2>🚀 AI Career Guide PRO</h2>
+<p>Build Your Future with AI</p>
 </section>
 
-<!-- LOGIN -->
-<section id="login">
-<h2>Login / Signup</h2>
-
-<input type="email" id="email" placeholder="Email">
-<input type="password" id="password" placeholder="Password">
-
-<br>
-
-<button onclick="signup()">Signup</button>
-<button onclick="login()">Login</button>
-
-<p id="userStatus"></p>
-</section>
-
-<!-- CAREER -->
 <section id="career">
-<h2>🎯 Career Explorer</h2>
-
+<h2>🎯 Careers</h2>
 <div id="careerList"></div>
 <div id="careerDetail"></div>
-
 </section>
 
-<!-- ROADMAP -->
 <section id="roadmap">
-<h2>🛣️ AI Roadmap</h2>
-
-<input type="text" id="careerInput" placeholder="Enter career">
+<h2>🛣️ Roadmap</h2>
+<input id="careerInput" placeholder="Enter career">
 <button onclick="generateRoadmap()">Generate</button>
-
 <div id="roadmapResult"></div>
 </section>
 
-<!-- DASHBOARD -->
 <section id="dashboard">
 <h2>📊 Dashboard</h2>
-
-<h3>Saved Careers ❤️</h3>
 <div id="savedCareers"></div>
-
 </section>
 
-<!-- NAVIGATION -->
-<div class="nav">
+<section id="chat">
+<h2>🤖 AI Chat</h2>
+<div class="chat-box" id="chatBox"></div>
+<input id="userInput" placeholder="Ask anything">
+<button onclick="sendMessage()">Send</button>
+</section>
 
+<div class="nav">
 <button onclick="showSection('home')">🏠</button>
 <button onclick="showSection('career')">🎯</button>
 <button onclick="showSection('roadmap')">🛣️</button>
 <button onclick="showSection('dashboard')">📊</button>
-<button onclick="showSection('login')">👤</button>
-
+<button onclick="showSection('chat')">🤖</button>
 </div>
 
 <script>
 
-// NAVIGATION
-function showSection(section){
-
-document.querySelectorAll("section").forEach(sec=>{
-sec.style.display="none";
-});
-
-document.getElementById(section).style.display="block";
-
+function showSection(id){
+document.querySelectorAll("section").forEach(s=>s.style.display="none");
+document.getElementById(id).style.display="block";
 }
 
-// LOGIN (Demo)
-function signup(){
-document.getElementById("userStatus").innerHTML="Signup Success ✅";
-}
-
-function login(){
-document.getElementById("userStatus").innerHTML="Login Success 🎉";
-}
-
-// CAREER DATA
-let careerData = [
-
-{name:"AI Engineer",salary:"₹10-25 LPA",skills:"Python, ML",roadmap:"Python → ML → Projects"},
-{name:"Doctor",salary:"₹6-20 LPA",skills:"Biology",roadmap:"PCB → NEET → MBBS"},
-{name:"Software Engineer",salary:"₹5-15 LPA",skills:"Coding",roadmap:"Coding → Projects"},
-{name:"Digital Marketer",salary:"₹3-10 LPA",skills:"SEO",roadmap:"Learn → Freelance"},
-{name:"Graphic Designer",salary:"₹2-8 LPA",skills:"Design",roadmap:"Design → Portfolio"}
-
+let careers=[
+{name:"AI Engineer",salary:"₹10-25LPA",skills:"Python,ML",roadmap:"Python→ML→Projects"},
+{name:"Doctor",salary:"₹6-20LPA",skills:"Biology",roadmap:"PCB→NEET→MBBS"},
+{name:"Software Engineer",salary:"₹5-15LPA",skills:"Coding",roadmap:"Coding→Projects"}
 ];
 
-// SHOW CAREERS
-function showCareers(){
-
+function loadCareers(){
 let html="";
-
-careerData.forEach((c,i)=>{
-html += `<div class="card" onclick="showDetail(${i})">${c.name}</div>`;
+careers.forEach((c,i)=>{
+html+=`<div class='card' onclick='showDetail(${i})'>${c.name}</div>`;
 });
-
-document.getElementById("careerList").innerHTML = html;
-
+document.getElementById("careerList").innerHTML=html;
 }
 
-// SHOW DETAIL
-function showDetail(index){
-
-let c = careerData[index];
-
-document.getElementById("careerDetail").innerHTML = `
-<div class="card">
+function showDetail(i){
+let c=careers[i];
+document.getElementById("careerDetail").innerHTML=`
+<div class='card'>
 <h3>${c.name}</h3>
-<p>💰 Salary: ${c.salary}</p>
-<p>🧠 Skills: ${c.skills}</p>
-<p>🛣️ Roadmap: ${c.roadmap}</p>
-
+<p>💰 ${c.salary}</p>
+<p>🧠 ${c.skills}</p>
+<p>🛣️ ${c.roadmap}</p>
 <button onclick="saveCareer('${c.name}')">❤️ Save</button>
-
-</div>
-`;
-
+</div>`;
 }
 
-// SAVE CAREER
 function saveCareer(name){
-
-let saved = JSON.parse(localStorage.getItem("careers")) || [];
-
+let saved=JSON.parse(localStorage.getItem("careers")||"[]");
 if(!saved.includes(name)){
 saved.push(name);
-localStorage.setItem("careers", JSON.stringify(saved));
-alert("Saved ✅");
+localStorage.setItem("careers",JSON.stringify(saved));
 }
-
 loadSaved();
-
 }
 
-// LOAD DASHBOARD
 function loadSaved(){
-
-let saved = JSON.parse(localStorage.getItem("careers")) || [];
-
+let saved=JSON.parse(localStorage.getItem("careers")||"[]");
 let html="";
-
-saved.forEach(c=>{
-html += `<div class="card">${c}</div>`;
-});
-
-document.getElementById("savedCareers").innerHTML = html;
-
+saved.forEach(c=>html+=`<div class='card'>${c}</div>`);
+document.getElementById("savedCareers").innerHTML=html;
 }
 
-// ROADMAP GENERATOR
 function generateRoadmap(){
-
-let career = document.getElementById("careerInput").value.toLowerCase();
-
-let roadmap="";
-
-if(career.includes("ai")){
-roadmap="AI Roadmap: Python → ML → Projects → Job";
-}
-else if(career.includes("doctor")){
-roadmap="Doctor: PCB → NEET → MBBS";
-}
-else{
-roadmap="Try AI / Doctor / Software";
+let val=document.getElementById("careerInput").value.toLowerCase();
+let res="";
+if(val.includes("ai")) res="Learn Python → ML → Build Projects";
+else if(val.includes("doctor")) res="PCB → NEET → MBBS";
+else res="Try AI / Doctor";
+document.getElementById("roadmapResult").innerHTML=res;
 }
 
-document.getElementById("roadmapResult").innerHTML=roadmap;
+function sendMessage(){
+let input=document.getElementById("userInput").value;
+let box=document.getElementById("chatBox");
 
+box.innerHTML+=`<p><b>You:</b> ${input}</p>`;
+
+let reply="";
+
+if(input.toLowerCase().includes("career")) reply="Choose based on interest + skills";
+else if(input.toLowerCase().includes("ai")) reply="AI is high demand 🔥";
+else reply="I am your AI Guide 🚀";
+
+box.innerHTML+=`<p><b>AI:</b> ${reply}</p>`;
+
+box.scrollTop=box.scrollHeight;
 }
 
-// INIT
-showCareers();
+loadCareers();
 loadSaved();
 
 </script>
