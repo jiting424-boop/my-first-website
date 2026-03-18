@@ -1,121 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Career Guide PRO</title>
+<title>AI Career Guide Pro</title>
 
 <style>
-body{margin:0;font-family:Arial;background:#f4f4f4}
-header{background:#0a0a0a;color:white;padding:15px;display:flex;justify-content:space-between}
-nav a{color:white;margin:10px;text-decoration:none}
-section{padding:40px;text-align:center}
-.hero{padding:80px;background:linear-gradient(90deg,#667eea,#764ba2);color:white}
-.card{background:white;padding:20px;margin:10px;border-radius:10px;box-shadow:0 5px 10px rgba(0,0,0,0.1)}
-input,select{padding:10px;margin:10px}
-button{padding:10px 20px;border:none;background:black;color:white;border-radius:5px}
-.dark{background:#111;color:white}
-.dark .card{background:#222}
+
+body{
+font-family:Arial;
+background:linear-gradient(135deg,#667eea,#764ba2);
+color:white;
+margin:0;
+}
+
+section{
+display:none;
+padding:15px;
+}
+
+#home{display:block;}
+
+.card{
+background:white;
+color:black;
+padding:15px;
+margin:10px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+button{
+background:#ff7b00;
+color:white;
+border:none;
+padding:10px;
+border-radius:10px;
+margin:5px;
+}
+
+input{
+padding:10px;
+margin:5px;
+border-radius:10px;
+border:none;
+}
+
+.nav{
+position:fixed;
+bottom:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+background:#222;
+padding:10px;
+}
+
+.nav button{
+background:none;
+color:white;
+font-size:20px;
+}
+
 </style>
 
 </head>
+
 <body>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
 
-<script>
-
-const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_DOMAIN",
-  projectId: "YOUR_ID"
-};
-
-firebase.initializeApp(firebaseConfig);
-
-</script>
-<header>
-<h2>AI Career Guide PRO</h2>
-<nav>
-<a href="#">Home</a>
-<a href="#careers">Careers</a>
-<a href="#roadmap">Roadmap</a>
-<a href="#chat">AI Chat</a>
-<button onclick="darkMode()">🌙</button>
-</nav>
-</header>
-
-<div class="hero">
-<h1>India's #1 AI Career Platform</h1>
-<p>200+ Careers | AI Roadmaps | Smart Guidance</p>
-</div>
-
-<section id="careers">
-<script>
-
-let careerData = [
-
-{name:"AI Engineer",salary:"₹10-25 LPA",skills:"Python, ML, DL",roadmap:"Python → ML → Projects → Job"},
-{name:"Data Scientist",salary:"₹8-20 LPA",skills:"Python, Statistics",roadmap:"Stats → Python → ML → Job"},
-{name:"Software Engineer",salary:"₹5-15 LPA",skills:"Coding, DSA",roadmap:"Coding → Projects → Internship"},
-{name:"Web Developer",salary:"₹3-10 LPA",skills:"HTML, CSS, JS",roadmap:"Frontend → Backend → Projects"},
-{name:"App Developer",salary:"₹4-12 LPA",skills:"Flutter, Android",roadmap:"Apps → Projects → Play Store"},
-{name:"Doctor",salary:"₹6-20 LPA",skills:"Biology",roadmap:"PCB → NEET → MBBS"},
-{name:"Lawyer",salary:"₹4-12 LPA",skills:"Law knowledge",roadmap:"BA LLB → Practice"},
-{name:"Chartered Accountant",salary:"₹6-25 LPA",skills:"Accounting",roadmap:"CA Foundation → Final"},
-{name:"Pilot",salary:"₹20-50 LPA",skills:"Flying",roadmap:"Training → License"},
-{name:"Digital Marketer",salary:"₹3-10 LPA",skills:"SEO, Ads",roadmap:"Learn → Freelance"},
-{name:"Graphic Designer",salary:"₹2-8 LPA",skills:"Photoshop",roadmap:"Design → Portfolio"},
-{name:"UI/UX Designer",salary:"₹5-15 LPA",skills:"Figma",roadmap:"Design → Projects"},
-{name:"Cyber Security Expert",salary:"₹8-20 LPA",skills:"Networking",roadmap:"Security → Ethical hacking"},
-{name:"Game Developer",salary:"₹5-15 LPA",skills:"Unity",roadmap:"Game dev → Publish"},
-{name:"Blockchain Developer",salary:"₹10-30 LPA",skills:"Solidity",roadmap:"Blockchain → Projects"},
-{name:"Cloud Engineer",salary:"₹8-25 LPA",skills:"AWS",roadmap:"Cloud → Certification"},
-{name:"DevOps Engineer",salary:"₹10-25 LPA",skills:"Docker",roadmap:"CI/CD → Tools"},
-{name:"Machine Learning Engineer",salary:"₹10-25 LPA",skills:"ML",roadmap:"ML → Projects"},
-{name:"Teacher",salary:"₹2-6 LPA",skills:"Teaching",roadmap:"B.Ed → School"},
-{name:"Police Officer",salary:"₹4-10 LPA",skills:"Physical fitness",roadmap:"Exam → Training"},
-{name:"Army Officer",salary:"₹6-15 LPA",skills:"Discipline",roadmap:"NDA → Training"},
-{name:"Entrepreneur",salary:"Unlimited",skills:"Business",roadmap:"Idea → Startup"},
-{name:"YouTuber",salary:"₹1-50 LPA",skills:"Content",roadmap:"Videos → Growth"},
-{name:"Content Creator",salary:"₹2-20 LPA",skills:"Social media",roadmap:"Content → Brand deals"},
-{name:"Photographer",salary:"₹2-10 LPA",skills:"Camera",roadmap:"Practice → Clients"},
-{name:"Video Editor",salary:"₹2-8 LPA",skills:"Editing",roadmap:"Edit → Freelance"},
-{name:"Animator",salary:"₹3-12 LPA",skills:"Animation",roadmap:"Animate → Studio"},
-{name:"Fashion Designer",salary:"₹3-15 LPA",skills:"Design",roadmap:"Design → Brand"},
-{name:"Interior Designer",salary:"₹4-12 LPA",skills:"Design",roadmap:"Interior → Clients"},
-{name:"Civil Engineer",salary:"₹4-12 LPA",skills:"Construction",roadmap:"B.Tech → Site"},
-{name:"Mechanical Engineer",salary:"₹4-10 LPA",skills:"Machines",roadmap:"Engg → Industry"},
-{name:"Electrical Engineer",salary:"₹4-10 LPA",skills:"Electrical",roadmap:"Engg → Job"},
-{name:"Business Analyst",salary:"₹6-15 LPA",skills:"Analysis",roadmap:"Data → Business"},
-{name:"HR Manager",salary:"₹5-12 LPA",skills:"Management",roadmap:"MBA → HR"},
-{name:"Banker",salary:"₹4-10 LPA",skills:"Finance",roadmap:"Exam → Bank"},
-{name:"Stock Trader",salary:"Variable",skills:"Market",roadmap:"Learn → Trade"},
-{name:"Actor",salary:"Variable",skills:"Acting",roadmap:"Audition → Films"},
-{name:"Singer",salary:"Variable",skills:"Music",roadmap:"Practice → Songs"},
-{name:"Sports Player",salary:"Variable",skills:"Sport",roadmap:"Practice → Selection"}
-
-];
-
-// old showCareers() and showDetail() same rahenge
-
-</script>
-<button onclick="careerInfo()">View Career</button>
-<p id="careerOutput"></p>
+<!-- HOME -->
+<section id="home">
+<h2>🏠 AI Career Guide</h2>
+<p>Welcome to your future 🚀</p>
 </section>
 
-<section id="roadmap">
-<h2>AI Career Roadmap Generator</h2>
-<select id="roadmapCareer">
-<option>Software Developer</option>
-<option>AI Engineer</option>
-<option>Designer</option>
-</select>
-<button onclick="generateRoadmap()">Generate Roadmap</button>
-<p id="roadmapOutput"></p>
-</section>
-
-<section>
-
+<!-- LOGIN -->
+<section id="login">
 <h2>Login / Signup</h2>
 
 <input type="email" id="email" placeholder="Email">
@@ -127,286 +85,94 @@ let careerData = [
 <button onclick="login()">Login</button>
 
 <p id="userStatus"></p>
-
-</section>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-
-<script>
-
-const auth = firebase.auth();
-
-function signup(){
-
-let email = document.getElementById("email").value;
-let password = document.getElementById("password").value;
-
-auth.createUserWithEmailAndPassword(email, password)
-.then(()=>{
-document.getElementById("userStatus").innerHTML="Signup Success ✅";
-})
-.catch((error)=>{
-document.getElementById("userStatus").innerHTML=error.message;
-});
-
-}
-
-function login(){
-
-let email = document.getElementById("email").value;
-let password = document.getElementById("password").value;
-
-auth.signInWithEmailAndPassword(email, password)
-.then(()=>{
-document.getElementById("userStatus").innerHTML="Login Success 🎉";
-})
-.catch((error)=>{
-document.getElementById("userStatus").innerHTML=error.message;
-});
-
-}
-
-</script>
-<script>
-
-async function chat(){
-
-let question = document.getElementById("question").value;
-
-document.getElementById("chatResult").innerHTML = "Loading...";
-
-let response = await fetch("https://api.openai.com/v1/chat/completions",{
-
-method:"POST",
-
-headers:{
-"Content-Type":"application/json",
-"Authorization":"Bearer your api key
-},
-
-body:JSON.stringify({
-model:"gpt-4o-mini",
-messages:[
-{role:"system",content:"You are a career guide AI."},
-{role:"user",content:question}
-]
-})
-
-});
-
-let data = await response.json();
-
-let answer = data.choices[0].message.content;
-
-document.getElementById("chatResult").innerHTML = answer;
-
-}
-
-</script>
-<section>
-<h2>Resume Builder</h2>
-<input id="name" placeholder="Name">
-<input id="skills" placeholder="Skills">
-<button onclick="resume()">Generate</button>
-<p id="resumeOutput"></p>
 </section>
 
-<script>
-function darkMode(){document.body.classList.toggle('dark')}
-
-function careerInfo(){
-document.getElementById('careerOutput').innerHTML='Career Info: High demand, good salary, strong growth.'
-}
-
-function generateRoadmap(){
-document.getElementById('roadmapOutput').innerHTML='Step 1: Learn Basics → Step 2: Projects → Step 3: Job Apply'
-}
-
-function chat(){
-document.getElementById('chatOutput').innerHTML='AI: Focus on skills + projects.'
-}
-
-function resume(){
-let n=document.getElementById('name').value
-let s=document.getElementById('skills').value
-
-document.getElementById('resumeOutput').innerHTML='Name: '+n+' | Skills: '+s
-}
-</script>
-
-</body>
-</html>
-<section>
-
-<h2>Search Career</h2>
-
-<input type="text" id="search" placeholder="Search career...">
-<button onclick="searchCareer()">Search</button>
-
-<div id="careerResult"></div>
-
-</section>
-
-<script>
-
-let careers = [
-
-"Software Engineer",
-"Doctor",
-"Data Scientist",
-"AI Engineer",
-"Web Developer",
-"App Developer",
-"Cyber Security Expert",
-"Digital Marketer",
-"Graphic Designer",
-"UI/UX Designer",
-"Chartered Accountant",
-"Lawyer",
-"Teacher",
-"Pilot",
-"Police Officer",
-"Army Officer",
-"Entrepreneur",
-"YouTuber",
-"Content Creator",
-"Game Developer"
-
-];
-
-function searchCareer(){
-
-let input = document.getElementById("search").value.toLowerCase();
-
-let result = careers.filter(career => 
-career.toLowerCase().includes(input)
-);
-
-document.getElementById("careerResult").innerHTML = result.join("<br>");
-
-}
-
-</script>
-<section>
-
-<h2>AI Career Roadmap</h2>
-
-<input type="text" id="careerInput" placeholder="Enter career (e.g. AI Engineer)">
-<button onclick="generateRoadmap()">Generate</button>
-
-<div id="roadmapResult"></div>
-
-</section>
-<script>
-
-function generateRoadmap(){
-
-let career = document.getElementById("careerInput").value.toLowerCase();
-
-let roadmap = "";
-
-if(career.includes("ai") || career.includes("data")){
-
-roadmap = `
-<h3>AI Engineer Roadmap 🚀</h3>
-1️⃣ 12th PCM (Math important) <br>
-2️⃣ B.Tech / BSc Computer Science <br>
-3️⃣ Learn Python 🐍 <br>
-4️⃣ Machine Learning + Deep Learning <br>
-5️⃣ Projects (AI apps) <br>
-6️⃣ Internship + Job
-`;
-
-}
-
-else if(career.includes("doctor")){
-
-roadmap = `
-<h3>Doctor Roadmap 🏥</h3>
-1️⃣ 12th PCB <br>
-2️⃣ NEET Exam <br>
-3️⃣ MBBS Degree <br>
-4️⃣ Internship <br>
-5️⃣ Specialization
-`;
-
-}
-
-else if(career.includes("software")){
-
-roadmap = `
-<h3>Software Engineer 💻</h3>
-1️⃣ 12th PCM <br>
-2️⃣ B.Tech / Coding Skills <br>
-3️⃣ Learn HTML, CSS, JS <br>
-4️⃣ Build Projects <br>
-5️⃣ Internship <br>
-6️⃣ Job
-`;
-
-}
-
-else{
-
-roadmap = "⚠️ Career not found (try AI, Doctor, Software)";
-}
-
-document.getElementById("roadmapResult").innerHTML = roadmap;
-
-}
-
-</script>
-<section>
-
-<h2>Career Explorer 🚀</h2>
+<!-- CAREER -->
+<section id="career">
+<h2>🎯 Career Explorer</h2>
 
 <div id="careerList"></div>
-
 <div id="careerDetail"></div>
 
 </section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+<h2>🛣️ AI Roadmap</h2>
+
+<input type="text" id="careerInput" placeholder="Enter career">
+<button onclick="generateRoadmap()">Generate</button>
+
+<div id="roadmapResult"></div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+<h2>📊 Dashboard</h2>
+
+<h3>Saved Careers ❤️</h3>
+<div id="savedCareers"></div>
+
+</section>
+
+<!-- NAVIGATION -->
+<div class="nav">
+
+<button onclick="showSection('home')">🏠</button>
+<button onclick="showSection('career')">🎯</button>
+<button onclick="showSection('roadmap')">🛣️</button>
+<button onclick="showSection('dashboard')">📊</button>
+<button onclick="showSection('login')">👤</button>
+
+</div>
+
 <script>
 
+// NAVIGATION
+function showSection(section){
+
+document.querySelectorAll("section").forEach(sec=>{
+sec.style.display="none";
+});
+
+document.getElementById(section).style.display="block";
+
+}
+
+// LOGIN (Demo)
+function signup(){
+document.getElementById("userStatus").innerHTML="Signup Success ✅";
+}
+
+function login(){
+document.getElementById("userStatus").innerHTML="Login Success 🎉";
+}
+
+// CAREER DATA
 let careerData = [
 
-{
-name:"AI Engineer",
-salary:"₹10-25 LPA",
-skills:"Python, Machine Learning, Deep Learning",
-roadmap:"Learn Python → ML → Projects → Job"
-},
-
-{
-name:"Doctor",
-salary:"₹6-20 LPA",
-skills:"Biology, Medical Knowledge",
-roadmap:"12th PCB → NEET → MBBS → Internship"
-},
-
-{
-name:"Software Engineer",
-salary:"₹5-15 LPA",
-skills:"Coding, DSA, Web Dev",
-roadmap:"Learn Coding → Projects → Internship → Job"
-}
+{name:"AI Engineer",salary:"₹10-25 LPA",skills:"Python, ML",roadmap:"Python → ML → Projects"},
+{name:"Doctor",salary:"₹6-20 LPA",skills:"Biology",roadmap:"PCB → NEET → MBBS"},
+{name:"Software Engineer",salary:"₹5-15 LPA",skills:"Coding",roadmap:"Coding → Projects"},
+{name:"Digital Marketer",salary:"₹3-10 LPA",skills:"SEO",roadmap:"Learn → Freelance"},
+{name:"Graphic Designer",salary:"₹2-8 LPA",skills:"Design",roadmap:"Design → Portfolio"}
 
 ];
 
+// SHOW CAREERS
 function showCareers(){
 
-let html = "";
+let html="";
 
-careerData.forEach((career,index)=>{
-
-html += `<div class="card" onclick="showDetail(${index})">
-${career.name}
-</div>`;
-
+careerData.forEach((c,i)=>{
+html += `<div class="card" onclick="showDetail(${i})">${c.name}</div>`;
 });
 
 document.getElementById("careerList").innerHTML = html;
 
 }
 
+// SHOW DETAIL
 function showDetail(index){
 
 let c = careerData[index];
@@ -417,31 +183,70 @@ document.getElementById("careerDetail").innerHTML = `
 <p>💰 Salary: ${c.salary}</p>
 <p>🧠 Skills: ${c.skills}</p>
 <p>🛣️ Roadmap: ${c.roadmap}</p>
+
+<button onclick="saveCareer('${c.name}')">❤️ Save</button>
+
 </div>
 `;
 
 }
 
-showCareers();
+// SAVE CAREER
+function saveCareer(name){
 
-</script>
-<div class="nav">
+let saved = JSON.parse(localStorage.getItem("careers")) || [];
 
-<button onclick="showSection('home')">🏠</button>
-<button onclick="showSection('career')">🎯</button>
-<button onclick="showSection('chat')">🤖</button>
+if(!saved.includes(name)){
+saved.push(name);
+localStorage.setItem("careers", JSON.stringify(saved));
+alert("Saved ✅");
+}
 
-</div>
-<script>
-
-function showSection(section){
-
-document.getElementById("home").style.display="none";
-document.getElementById("career").style.display="none";
-document.getElementById("chat").style.display="none";
-
-document.getElementById(section).style.display="block";
+loadSaved();
 
 }
 
+// LOAD DASHBOARD
+function loadSaved(){
+
+let saved = JSON.parse(localStorage.getItem("careers")) || [];
+
+let html="";
+
+saved.forEach(c=>{
+html += `<div class="card">${c}</div>`;
+});
+
+document.getElementById("savedCareers").innerHTML = html;
+
+}
+
+// ROADMAP GENERATOR
+function generateRoadmap(){
+
+let career = document.getElementById("careerInput").value.toLowerCase();
+
+let roadmap="";
+
+if(career.includes("ai")){
+roadmap="AI Roadmap: Python → ML → Projects → Job";
+}
+else if(career.includes("doctor")){
+roadmap="Doctor: PCB → NEET → MBBS";
+}
+else{
+roadmap="Try AI / Doctor / Software";
+}
+
+document.getElementById("roadmapResult").innerHTML=roadmap;
+
+}
+
+// INIT
+showCareers();
+loadSaved();
+
 </script>
+
+</body>
+</html>
